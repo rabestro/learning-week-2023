@@ -29,6 +29,10 @@
         </license>
     </licenses>
 
+    <modules>
+        <module>diffblue</module>
+    </modules>
+
     <organization>
         <name>EPAM Systems</name>
         <url>https://www.epam.com</url>
