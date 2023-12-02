@@ -30,8 +30,9 @@
     </licenses>
 
     <modules>
-        <module>diffblue</module>
+        <module>diffblue-cover</module>
         <module>epam-ai-dial</module>
+        <module>github-copilot</module>
     </modules>
 
     <organization>

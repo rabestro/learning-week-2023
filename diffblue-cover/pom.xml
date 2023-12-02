@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>diffblue</artifactId>
+    <artifactId>diffblue-cover</artifactId>
     <packaging>pom</packaging>
 
     <name>
@@ -23,7 +23,7 @@
     </url>
 
     <modules>
-        <module>roman-to-integer</module>
+        <module>diffblue-roman</module>
     </modules>
 
     <dependencies>
