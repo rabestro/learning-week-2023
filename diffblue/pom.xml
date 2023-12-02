@@ -12,10 +12,16 @@
     <artifactId>diffblue</artifactId>
     <packaging>pom</packaging>
 
-    <name>Diffblue Cover</name>
+    <name>
+        Diffblue Cover
+    </name>
     <description>
         Diffblue Cover: Autonomous Java Unit Test Writing with AI for Code.
     </description>
+    <url>
+        https://www.diffblue.com/
+    </url>
+
     <modules>
         <module>roman-to-integer</module>
     </modules>
@@ -23,16 +29,9 @@
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
+            <artifactId>junit-jupiter-api</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-        </dependency>
     </dependencies>
+
 </project>
