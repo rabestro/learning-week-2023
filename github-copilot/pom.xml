@@ -9,37 +9,30 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>epam-ai-dial</artifactId>
+    <artifactId>github-copilot</artifactId>
     <packaging>pom</packaging>
 
     <name>
-        EPAM AI Dial
+       GitHub Copilot
     </name>
     <description>
-        In this module, we have collected samples of unit tests created using EPAM artificial intelligence bot.
+        The world’s most widely adopted AI developer tool.
     </description>
     <url>
-        https://chat.lab.epam.com/
+        https://github.com/features/copilot
     </url>
-
     <modules>
-        <module>epam-ai-roman</module>
+        <module>copilot-roman</module>
     </modules>
 
     <dependencies>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <scope>test</scope>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
+            <groupId>org.apache.groovy</groupId>
+            <artifactId>groovy</artifactId>
         </dependency>
     </dependencies>
-
 </project>
