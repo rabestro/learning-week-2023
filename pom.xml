@@ -29,6 +29,11 @@
         </license>
     </licenses>
 
+    <modules>
+        <module>diffblue</module>
+        <module>epam-ai-dial</module>
+    </modules>
+
     <organization>
         <name>EPAM Systems</name>
         <url>https://www.epam.com</url>
@@ -38,14 +43,26 @@
         <developer>
             <id>rabestro</id>
             <name>Jegors Čemisovs</name>
-            <email>jegors.cemisovs@gmail.com</email>
+            <email>jegors_cemisovs@epam.com</email>
             <url>https://www.linkedin.com/in/jegors-cemisovs/</url>
             <timezone>Europe/Riga</timezone>
             <roles>
                 <role>developer</role>
+                <role>speaker</role>
             </roles>
         </developer>
     </developers>
+
+    <contributors>
+        <contributor>
+            <name>Alina Belskaya</name>
+            <email>alina_belskaya@epam.com</email>
+            <url>https://www.linkedin.com/in/alina-belskaya-a7a692199/</url>
+            <roles>
+                <role>moderator</role>
+            </roles>
+        </contributor>
+    </contributors>
 
     <scm>
         <connection>scm:git:https://github.com/rabestro/learning-week-2023.git</connection>
@@ -320,6 +337,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
             <plugin>
+                <artifactId>maven-site-plugin</artifactId>
+            </plugin>
+            <plugin>
                 <artifactId>maven-scm-publish-plugin</artifactId>
             </plugin>
 
@@ -334,6 +354,26 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <configuration>
+                            <formats>
+                                <format>XML</format>
+                                <format>HTML</format>
+                            </formats>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
