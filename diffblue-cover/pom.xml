@@ -25,6 +25,7 @@
     <modules>
         <module>diffblue-roman</module>
         <module>diffblue-flipflop</module>
+        <module>diffblue-legal-age</module>
     </modules>
 
     <properties>
