@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"copilot.roman","c":"RomanToArabicConverter","l":"applyAsInt(String)","u":"applyAsInt(java.lang.String)"},{"p":"copilot.roman","c":"RomanToArabicConverter","l":"RomanToArabicConverter()","u":"%3Cinit%3E()"}];updateSearchResults();

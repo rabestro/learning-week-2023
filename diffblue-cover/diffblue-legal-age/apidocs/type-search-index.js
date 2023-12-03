@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"diffblue.legalage","l":"LegalAgePredicate"}];updateSearchResults();

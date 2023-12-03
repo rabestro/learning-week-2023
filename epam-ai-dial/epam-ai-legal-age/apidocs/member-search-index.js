@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"epam.legalage","c":"LegalAgePredicate","l":"LegalAgePredicate()","u":"%3Cinit%3E()"},{"p":"epam.legalage","c":"LegalAgePredicate","l":"LegalAgePredicate(Clock)","u":"%3Cinit%3E(java.time.Clock)"},{"p":"epam.legalage","c":"LegalAgePredicate","l":"test(LocalDate)","u":"test(java.time.LocalDate)"}];updateSearchResults();

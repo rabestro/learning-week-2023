@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"diffblue.flipflop","c":"FlipFlopPredicate","l":"FlipFlopPredicate(Predicate<? super T>, Predicate<? super T>)","u":"%3Cinit%3E(java.util.function.Predicate,java.util.function.Predicate)"},{"p":"diffblue.flipflop","c":"FlipFlopPredicate","l":"test(T)"}];updateSearchResults();
