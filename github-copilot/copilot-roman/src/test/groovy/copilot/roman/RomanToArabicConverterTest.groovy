@@ -12,7 +12,6 @@ So that I can do arithmetic with them
 @See('https://en.wikipedia.org/wiki/Roman_numerals')
 class RomanToArabicConverterTest extends Specification {
 
-    @PendingFeature
     @Unroll('convert #roman to #arabic')
     def 'convert roman numeral to arabic number'() {
         given:
