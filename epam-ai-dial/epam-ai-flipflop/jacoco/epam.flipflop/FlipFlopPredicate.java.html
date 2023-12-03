@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FlipFlopPredicate.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Flip-Flop Predicate</a> &gt; <a href="index.source.html" class="el_package">epam.flipflop</a> &gt; <span class="el_source">FlipFlopPredicate.java</span></div><h1>FlipFlopPredicate.java</h1><pre class="source lang-java linenums">package epam.flipflop;
+
+import java.util.function.Predicate;
+
+/**
+ * A predicate that emulates flip-flop logic similar to the two-dots flip-flop in Perl or Ruby.
+ * The predicate takes two input predicates, a start condition, and an end condition.
+ * When the start condition is met, the predicate returns true for all subsequent inputs
+ * until the end condition is met, at which point it returns true and resets its internal state.
+ *
+ * @param &lt;T&gt; The type of the input to the predicate
+ */
+public class FlipFlopPredicate&lt;T&gt; implements Predicate&lt;T&gt; {
+    private final Predicate&lt;T&gt; startCondition;
+    private final Predicate&lt;T&gt; endCondition;
+    private boolean active;
+
+    /**
+     * Constructs a new FlipFlopPredicate with the given start and end conditions.
+     *
+     * @param startCondition The predicate that represents the start condition
+     * @param endCondition   The predicate that represents the end condition
+     */
+<span class="fc" id="L24">    public FlipFlopPredicate(Predicate&lt;T&gt; startCondition, Predicate&lt;T&gt; endCondition) {</span>
+<span class="fc" id="L25">        this.startCondition = startCondition;</span>
+<span class="fc" id="L26">        this.endCondition = endCondition;</span>
+<span class="fc" id="L27">        this.active = false;</span>
+<span class="fc" id="L28">    }</span>
+
+    /**
+     * Evaluates this predicate on the given argument.
+     *
+     * @param t The input argument
+     * @return {@code true} if the input matches the flip-flop logic, otherwise {@code false}
+     */
+    @Override
+    public boolean test(T t) {
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (active) {</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">            if (endCondition.test(t)) {</span>
+<span class="fc" id="L40">                active = false;</span>
+            }
+<span class="fc" id="L42">            return true;</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        } else if (startCondition.test(t)) {</span>
+<span class="fc" id="L44">            active = true;</span>
+<span class="fc" id="L45">            return test(t);</span>
+        }
+<span class="fc" id="L47">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

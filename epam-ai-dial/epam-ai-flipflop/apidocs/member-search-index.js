@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"epam.flipflop","c":"FlipFlopPredicate","l":"FlipFlopPredicate(Predicate<T>, Predicate<T>)","u":"%3Cinit%3E(java.util.function.Predicate,java.util.function.Predicate)"},{"p":"epam.flipflop","c":"FlipFlopPredicate","l":"test(T)"}];updateSearchResults();

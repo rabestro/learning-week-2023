@@ -9,7 +9,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="Apache Maven Doxia Site Renderer 1.11.1" />
-    <title>epam-ai-roman &#x2013; Change Log Report</title>
+    <title>Roman to Arabic &#x2013; Change Log Report</title>
     <link rel="stylesheet" href="./css/maven-base.css" />
     <link rel="stylesheet" href="./css/maven-theme.css" />
     <link rel="stylesheet" href="./css/site.css" />
@@ -17,7 +17,7 @@
   </head>
   <body class="composite">
     <div id="banner">
-<div id="bannerLeft">epam-ai-roman
+<div id="bannerLeft">Roman to Arabic
 </div>
       <div class="clear">
         <hr/>
@@ -28,7 +28,7 @@
         <span id="publishDate">Last Published: 2023-12-03</span>
            | <span id="projectVersion">Version: 1.0-SNAPSHOT</span>
       </div>
-      <div class="xright"><a href="./" title="epam-ai-roman">epam-ai-roman</a>      </div>
+      <div class="xright"><a href="./" title="Roman to Arabic">Roman to Arabic</a>      </div>
       <div class="clear">
         <hr/>
       </div>
@@ -44,13 +44,18 @@
      <li class="collapsed"><a href="project-info.html" title="Project Information">Project Information</a></li>
      <li class="expanded"><a href="project-reports.html" title="Project Reports">Project Reports</a>
       <ul>
+       <li class="none"><a href="xref/index.html" title="Source Xref">Source Xref</a></li>
+       <li class="none"><a href="xref-test/index.html" title="Test Source Xref">Test Source Xref</a></li>
+       <li class="none"><a href="apidocs/index.html" title="Javadoc">Javadoc</a></li>
        <li class="none"><strong>Change Log</strong></li>
        <li class="none"><a href="file-activity.html" title="File Activity">File Activity</a></li>
        <li class="none"><a href="dev-activity.html" title="Developer Activity">Developer Activity</a></li>
+       <li class="none"><a href="jacoco/index.html" title="JaCoCo">JaCoCo</a></li>
        <li class="none"><a href="surefire-report.html" title="Surefire">Surefire</a></li>
        <li class="none"><a href="checkstyle.html" title="Checkstyle">Checkstyle</a></li>
        <li class="none"><a href="cpd.html" title="CPD">CPD</a></li>
        <li class="none"><a href="pmd.html" title="PMD">PMD</a></li>
+       <li class="none"><a href="spotbugs.html" title="SpotBugs">SpotBugs</a></li>
        <li class="none"><a href="dependency-analysis.html" title="Dependency Analysis">Dependency Analysis</a></li>
        <li class="none"><a href="dependency-updates-report.html" title="Dependency Updates Report">Dependency Updates Report</a></li>
        <li class="none"><a href="plugin-updates-report.html" title="Plugin Updates Report">Plugin Updates Report</a></li>
@@ -69,12 +74,20 @@
 <h2><a name="Change_Log_Report"></a>Change Log Report</h2>
 <p>Total number of changed sets: 1</p><section>
 <h3><a name="Changes_between_2023-11-03_and_2023-12-04"></a>Changes between 2023-11-03 and 2023-12-04</h3>
-<p>Total commits: 1<br />Total number of files changed: 1</p>
+<p>Total commits: 3<br />Total number of files changed: 4</p>
 <table border="0" class="bodyTable">
 <tr class="a">
 <th>Timestamp</th>
 <th>Author</th>
 <th>Details</th></tr>
+<tr class="b">
+<td>2023-12-03 20:21:57</td>
+<td>Jegors &#x10c;emisovs &lt;jegors_cemisovs@epam.com&gt;</td>
+<td><a class="externalLink" href="https://github.com/rabestro/learning-week-2023/epam-ai-dial/epam-ai-roman/src/main/java/epam/roman/RomanToArabicConverter.java">epam-ai-dial/epam-ai-roman/src/main/java/epam/roman/<b>RomanToArabicConverter.java</b></a> <a class="externalLink" href="https://github.com/rabestro/learning-week-2023/epam-ai-dial/epam-ai-roman/src/main/java/epam/roman/RomanToArabicConverter.java?rev=387bf40e0a33b320e669c0af95c823e558579337&amp;content-type=text/vnd.viewcvs-markup">v 387bf40e0a33b320e669c0af95c823e558579337</a><br /><a class="externalLink" href="https://github.com/rabestro/learning-week-2023/epam-ai-dial/epam-ai-roman/src/test/groovy/epam/roman/RomanToArabicConverterSpec.groovy">epam-ai-dial/epam-ai-roman/src/test/groovy/epam/roman/<b>RomanToArabicConverterSpec.groovy</b></a> <a class="externalLink" href="https://github.com/rabestro/learning-week-2023/epam-ai-dial/epam-ai-roman/src/test/groovy/epam/roman/RomanToArabicConverterSpec.groovy?rev=387bf40e0a33b320e669c0af95c823e558579337&amp;content-type=text/vnd.viewcvs-markup">v 387bf40e0a33b320e669c0af95c823e558579337</a><br /><a class="externalLink" href="https://github.com/rabestro/learning-week-2023/epam-ai-dial/epam-ai-roman/src/test/java/epam/roman/RomanToArabicConverterAiTest.java">epam-ai-dial/epam-ai-roman/src/test/java/epam/roman/<b>RomanToArabicConverterAiTest.java</b></a> <a class="externalLink" href="https://github.com/rabestro/learning-week-2023/epam-ai-dial/epam-ai-roman/src/test/java/epam/roman/RomanToArabicConverterAiTest.java?rev=387bf40e0a33b320e669c0af95c823e558579337&amp;content-type=text/vnd.viewcvs-markup">v 387bf40e0a33b320e669c0af95c823e558579337</a><br /><br />Add Roman to Arabic numeral converter and tests<br /><br />Adding a new utility, RomanToArabicConverter, to convert Roman numerals to their Arabic counterparts. This functionality is necessary to support features that rely on Roman numeral inputs. The implementation uses a HashMap to map the numerals and converts the input string from right to left.<br /><br />Tests for this conversion method have also been added, ensuring all typical cases (minimum value, subtraction cases, maximum value) are correctly handled. Tests are executed with both Groovy and JUnit, increasing testing reliability and coverage.</td></tr>
+<tr class="a">
+<td>2023-12-03 20:10:59</td>
+<td>Jegors &#x10c;emisovs &lt;jegors_cemisovs@epam.com&gt;</td>
+<td><a class="externalLink" href="https://github.com/rabestro/learning-week-2023/epam-ai-dial/epam-ai-roman/pom.xml">epam-ai-dial/epam-ai-roman/<b>pom.xml</b></a> <a class="externalLink" href="https://github.com/rabestro/learning-week-2023/epam-ai-dial/epam-ai-roman/pom.xml?rev=ea4316eff58f044ab258e698f0a282ba2e571811&amp;content-type=text/vnd.viewcvs-markup">v ea4316eff58f044ab258e698f0a282ba2e571811</a><br /><br />Update FlipFlopPredicate and LegalAgePredicate<br /><br />Extended FlipFlopPredicate tests and functionality to meet the modified specification where it returns true while the state has been changed from active to inactive on the input satisfying the end condition.<br /><br />Added tests and implementation for LegalAgePredicate which determines if a person of a given birthdate has reached legal age. Implementation and tests are provided with two Predicate constructors allowing to use different Clock for date mocking in tests.<br /><br />Added a detailed dialogue transcript explaining the reason behind all decisions and clarifications asked during the task implementation.</td></tr>
 <tr class="b">
 <td>2023-12-02 18:17:54</td>
 <td>Jegors &#x10c;emisovs &lt;jegors_cemisovs@epam.com&gt;</td>
