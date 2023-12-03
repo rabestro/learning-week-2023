@@ -11,5 +11,14 @@
 
     <artifactId>copilot-roman</artifactId>
 
+    <name>
+        Roman to Arabic
+    </name>
+    <description>
+        Convert Roman numerals to Arabic numbers.
+    </description>
+    <url>
+        https://en.wikipedia.org/wiki/Roman_numerals
+    </url>
 
 </project>
