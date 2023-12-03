@@ -2,19 +2,21 @@ package epam.legalage
 
 import spock.lang.Specification
 import spock.lang.Subject
+import spock.lang.Title
 import spock.lang.Unroll
 
 import java.time.Clock
 import java.time.LocalDate
 import java.time.ZoneId
 
+@Title('Legal age predicate')
 class LegalAgePredicateSpec extends Specification {
 
     @Unroll('#scenario')
-    def 'determine whether the user has reached legal age'() {
+    def 'legal age verification'() {
         given:
         def clock = Clock.fixed(currentDate.atStartOfDay(ZoneId.systemDefault()).toInstant(), ZoneId.systemDefault())
-        @Subject
+        and:
         def legalAgePredicate = new LegalAgePredicate(clock)
 
         expect:
