@@ -12,13 +12,13 @@
     <artifactId>diffblue-roman</artifactId>
 
     <name>
-        Roman to Integer
+        Roman to Arabic
     </name>
     <description>
-        Roman to Integer: Convert Roman numerals to integers.
+        Convert Roman numerals to Arabic numbers.
     </description>
     <url>
-        https://leetcode.com/problems/roman-to-integer/
+        https://en.wikipedia.org/wiki/Roman_numerals
     </url>
 
 </project>

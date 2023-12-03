@@ -302,6 +302,19 @@
                     </configuration>
                 </plugin>
 
+                <plugin>
+                    <groupId>org.owasp</groupId>
+                    <artifactId>dependency-check-maven</artifactId>
+                    <version>9.0.2</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
                 <!-- Mandatory plugins for using Spock -->
                 <plugin>
                     <!-- The gmavenplus plugin is used to compile Groovy code. -->
@@ -343,7 +356,6 @@
             <plugin>
                 <artifactId>maven-scm-publish-plugin</artifactId>
             </plugin>
-
             <plugin>
                 <groupId>com.diffplug.spotless</groupId>
                 <artifactId>spotless-maven-plugin</artifactId>
@@ -381,24 +393,35 @@
 
     <reporting>
         <plugins>
-
+            <!-- Primary project information -->
             <plugin>
-                <artifactId>maven-surefire-report-plugin</artifactId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
             </plugin>
+
+            <!-- Code documentation and source cross referencing -->
+            <plugin>
+                <artifactId>maven-jxr-plugin</artifactId>
+            </plugin>
+
+            <!-- Testing and code quality -->
             <plugin>
                 <artifactId>maven-changelog-plugin</artifactId>
             </plugin>
             <plugin>
-                <artifactId>maven-jxr-plugin</artifactId>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
             </plugin>
             <plugin>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
             </plugin>
             <plugin>
-                <artifactId>maven-pmd-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.3.1</version>
                 <reportSets>
@@ -410,9 +433,14 @@
                 </reportSets>
             </plugin>
             <plugin>
+                <artifactId>maven-pmd-plugin</artifactId>
+            </plugin>
+            <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
             </plugin>
+
+            <!-- Dependencies and version management -->
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <reportSets>
@@ -437,12 +465,12 @@
                 </reportSets>
             </plugin>
             <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
                 <reportSets>
                     <reportSet>
                         <reports>
-                            <report>report</report>
+                            <report>aggregate</report>
                         </reports>
                     </reportSet>
                 </reportSets>
