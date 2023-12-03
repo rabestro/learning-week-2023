@@ -16,7 +16,7 @@
         EPAM AI Dial
     </name>
     <description>
-        In this module, we have collected samples of unit tests created using EPAM artificial intelligence bot.
+        In this module, collected samples of unit tests created using EPAM AI Dial.
     </description>
     <url>
         https://chat.lab.epam.com/
@@ -30,6 +30,11 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>

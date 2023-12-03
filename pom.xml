@@ -33,6 +33,7 @@
         <module>diffblue-cover</module>
         <module>epam-ai-dial</module>
         <module>github-copilot</module>
+        <module>epam-ai-dial/epam-ai-legal-age</module>
     </modules>
 
     <organization>
