@@ -2,6 +2,8 @@ package epam.flipflop;
 
 import java.util.function.Predicate;
 
+import static java.util.Objects.requireNonNull;
+
 /**
  * A predicate that emulates flip-flop logic similar to the two-dots flip-flop in Perl or Ruby.
  * The predicate takes two input predicates, a start condition, and an end condition.
@@ -11,9 +13,9 @@ import java.util.function.Predicate;
  * @param <T> The type of the input to the predicate
  */
 public class FlipFlopPredicate<T> implements Predicate<T> {
-    private final Predicate<T> startCondition;
-    private final Predicate<T> endCondition;
-    private boolean active;
+    private final Predicate<? super T> startPredicate;
+    private final Predicate<? super T> endPredicate;
+    private boolean state;
 
     /**
      * Constructs a new FlipFlopPredicate with the given start and end conditions.
@@ -22,28 +24,20 @@ public class FlipFlopPredicate<T> implements Predicate<T> {
      * @param endCondition   The predicate that represents the end condition
      */
     public FlipFlopPredicate(Predicate<T> startCondition, Predicate<T> endCondition) {
-        this.startCondition = startCondition;
-        this.endCondition = endCondition;
-        this.active = false;
+        this.startPredicate = requireNonNull(startCondition);
+        this.endPredicate = requireNonNull(endCondition);
     }
 
     /**
      * Evaluates this predicate on the given argument.
      *
-     * @param t The input argument
+     * @param value The input argument
      * @return {@code true} if the input matches the flip-flop logic, otherwise {@code false}
      */
     @Override
-    public boolean test(T t) {
-        if (active) {
-            if (endCondition.test(t)) {
-                active = false;
-            }
-            return true;
-        } else if (startCondition.test(t)) {
-            active = true;
-            return test(t);
-        }
-        return false;
+    public boolean test(final T value) {
+        var result = state || startPredicate.test(value);
+        state = result && !endPredicate.test(value);
+        return result;
     }
 }

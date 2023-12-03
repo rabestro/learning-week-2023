@@ -16,7 +16,7 @@ class LegalAgePredicateSpec extends Specification {
     def 'legal age verification'() {
         given:
         def clock = Clock.fixed(currentDate.atStartOfDay(ZoneId.systemDefault()).toInstant(), ZoneId.systemDefault())
-        @Subject
+        and:
         def legalAgePredicate = new LegalAgePredicate(clock)
 
         expect:
