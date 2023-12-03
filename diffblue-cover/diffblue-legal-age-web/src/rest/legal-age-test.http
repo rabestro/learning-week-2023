@@ -1,0 +1,44 @@
+###
+# @name User is exactly 17 years old
+
+< {%
+    const today = new Date();
+    today.setFullYear(today.getFullYear() - 1);
+    const young = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
+    request.variables.set("birthday", young)
+%}
+
+GET http://localhost:8182/age?birthday={{birthday}}
+
+> {%
+    const data = JSON.parse(response.body.toString());
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+    client.test("Is not of legal age", function() {
+        client.assert(data.isLegalAge === false, "User is of legal age");
+    });
+%}
+
+###
+# @name User is one day younger than 18
+
+< {%
+    const today = new Date();
+    today.setFullYear(today.getFullYear() - 18);
+    today.setDate(today.getDate() - 1); // subtract 1 day
+    const young = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
+    request.variables.set("birthday", young)
+%}
+
+GET http://localhost:8182/age?birthday={{birthday}}
+
+> {%
+    const data = JSON.parse(response.body.toString());
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+    client.test("Is not of legal age", function() {
+        client.assert(data.isLegalAge === false, "User is of legal age");
+    });
+%}

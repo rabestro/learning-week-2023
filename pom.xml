@@ -95,7 +95,7 @@
     </distributionManagement>
 
     <properties>
-        <java.version>21</java.version>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -142,13 +142,19 @@
                 <version>4.0.16</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>com.athaydes</groupId>
+                <artifactId>spock-reports</artifactId>
+                <version>2.5.1-groovy-4.0</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <build>
         <pluginManagement>
             <plugins>
-                <!-- Built-in plugins -->
+                <!-- compilation related plugins -->
                 <plugin>
                     <artifactId>maven-enforcer-plugin</artifactId>
                     <version>3.4.1</version>
@@ -170,6 +176,8 @@
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>3.3.1</version>
                 </plugin>
+
+                <!-- Testing related plugins -->
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.2.2</version>
@@ -194,10 +202,14 @@
                     <artifactId>maven-failsafe-plugin</artifactId>
                     <version>3.2.2</version>
                 </plugin>
+
+                <!-- Test report related plugins -->
                 <plugin>
                     <artifactId>maven-surefire-report-plugin</artifactId>
                     <version>3.2.2</version>
                 </plugin>
+
+                <!-- Plugins to document and inspect -->
                 <plugin>
                     <artifactId>maven-site-plugin</artifactId>
                     <version>3.12.1</version>
@@ -227,41 +239,42 @@
                     <artifactId>maven-jxr-plugin</artifactId>
                     <version>3.3.1</version>
                 </plugin>
-                <plugin>
-                    <artifactId>maven-scm-publish-plugin</artifactId>
-                    <version>3.2.1</version>
-                    <configuration>
-                        <scmBranch>gh-pages</scmBranch>
-                    </configuration>
-                </plugin>
 
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-pmd-plugin</artifactId>
-                    <version>3.21.2</version>
-                </plugin>
-
-                <!-- SonarQube (Scanner for Maven) -->
+                <!-- Plugins for quality and safety checks -->
                 <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
                     <version>3.10.0.2594</version>
                 </plugin>
-
-                <!-- JaCoCo (Java Code Coverage Library) -->
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>0.8.11</version>
                 </plugin>
-
                 <plugin>
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
                     <version>4.8.1.0</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-pmd-plugin</artifactId>
+                    <version>3.21.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.owasp</groupId>
+                    <artifactId>dependency-check-maven</artifactId>
+                    <version>9.0.2</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
 
-                <!-- Spotless (Code Formatter) -->
+                <!-- Plugins for code formatting -->
                 <plugin>
                     <groupId>com.diffplug.spotless</groupId>
                     <artifactId>spotless-maven-plugin</artifactId>
@@ -302,17 +315,13 @@
                     </configuration>
                 </plugin>
 
+                <!-- Plugins for the site generation and deployment -->
                 <plugin>
-                    <groupId>org.owasp</groupId>
-                    <artifactId>dependency-check-maven</artifactId>
-                    <version>9.0.2</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                        </execution>
-                    </executions>
+                    <artifactId>maven-scm-publish-plugin</artifactId>
+                    <version>3.2.1</version>
+                    <configuration>
+                        <scmBranch>gh-pages</scmBranch>
+                    </configuration>
                 </plugin>
 
                 <!-- Mandatory plugins for using Spock -->
@@ -442,6 +451,9 @@
             <plugin>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.3.1</version>
+                <configuration>
+                    <configLocation>google_checks.xml</configLocation>
+                </configuration>
                 <reportSets>
                     <reportSet>
                         <reports>
