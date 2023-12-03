@@ -2,6 +2,8 @@
 
 import java.util.function.Predicate;
 
+import static java.util.Objects.requireNonNull;
+
 /**
  * A predicate that emulates flip-flop logic similar to the two-dots flip-flop in Perl or Ruby.
  * The predicate takes two input predicates, a start condition, and an end condition.
@@ -11,9 +13,9 @@ import java.util.function.Predicate;
  * @param &lt;T&gt; The type of the input to the predicate
  */
 public class FlipFlopPredicate&lt;T&gt; implements Predicate&lt;T&gt; {
-    private final Predicate&lt;T&gt; startCondition;
-    private final Predicate&lt;T&gt; endCondition;
-    private boolean active;
+    private final Predicate&lt;? super T&gt; startPredicate;
+    private final Predicate&lt;? super T&gt; endPredicate;
+    private boolean state;
 
     /**
      * Constructs a new FlipFlopPredicate with the given start and end conditions.
@@ -21,30 +23,22 @@ public class FlipFlopPredicate&lt;T&gt; implements Predicate&lt;T&gt; {
      * @param startCondition The predicate that represents the start condition
      * @param endCondition   The predicate that represents the end condition
      */
-<span class="fc" id="L24">    public FlipFlopPredicate(Predicate&lt;T&gt; startCondition, Predicate&lt;T&gt; endCondition) {</span>
-<span class="fc" id="L25">        this.startCondition = startCondition;</span>
-<span class="fc" id="L26">        this.endCondition = endCondition;</span>
-<span class="fc" id="L27">        this.active = false;</span>
-<span class="fc" id="L28">    }</span>
+<span class="fc" id="L26">    public FlipFlopPredicate(Predicate&lt;T&gt; startCondition, Predicate&lt;T&gt; endCondition) {</span>
+<span class="fc" id="L27">        this.startPredicate = requireNonNull(startCondition);</span>
+<span class="fc" id="L28">        this.endPredicate = requireNonNull(endCondition);</span>
+<span class="fc" id="L29">    }</span>
 
     /**
      * Evaluates this predicate on the given argument.
      *
-     * @param t The input argument
+     * @param value The input argument
      * @return {@code true} if the input matches the flip-flop logic, otherwise {@code false}
      */
     @Override
-    public boolean test(T t) {
-<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (active) {</span>
-<span class="fc bfc" id="L39" title="All 2 branches covered.">            if (endCondition.test(t)) {</span>
-<span class="fc" id="L40">                active = false;</span>
-            }
-<span class="fc" id="L42">            return true;</span>
-<span class="fc bfc" id="L43" title="All 2 branches covered.">        } else if (startCondition.test(t)) {</span>
-<span class="fc" id="L44">            active = true;</span>
-<span class="fc" id="L45">            return test(t);</span>
-        }
-<span class="fc" id="L47">        return false;</span>
+    public boolean test(final T value) {
+<span class="fc bfc" id="L39" title="All 4 branches covered.">        var result = state || startPredicate.test(value);</span>
+<span class="fc bfc" id="L40" title="All 4 branches covered.">        state = result &amp;&amp; !endPredicate.test(value);</span>
+<span class="fc" id="L41">        return result;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
