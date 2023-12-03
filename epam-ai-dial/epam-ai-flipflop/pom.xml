@@ -9,16 +9,16 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>epam-ai-roman</artifactId>
+    <artifactId>epam-ai-flipflop</artifactId>
 
     <name>
-        Roman to Arabic
+        Flip-Flop Predicate
     </name>
     <description>
-        Convert Roman numerals to Arabic numbers.
+        The predicate emulates the logic of the flip-flop operator.
     </description>
     <url>
-        https://en.wikipedia.org/wiki/Roman_numerals
+        https://en.wikipedia.org/wiki/Flip-flop_(programming)
     </url>
 
 </project>

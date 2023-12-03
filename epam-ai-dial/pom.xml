@@ -24,6 +24,8 @@
 
     <modules>
         <module>epam-ai-roman</module>
+        <module>epam-ai-legal-age</module>
+        <module>epam-ai-flipflop</module>
     </modules>
 
     <dependencies>
