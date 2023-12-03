@@ -3,11 +3,25 @@
 import java.util.function.ToIntFunction;
 
 
-<span class="nc" id="L6">public final class RomanToArabicConverter implements ToIntFunction&lt;String&gt; {</span>
+<span class="fc" id="L6">public final class RomanToArabicConverter implements ToIntFunction&lt;String&gt; {</span>
 
     @Override
     public int applyAsInt(String value) {
-<span class="nc" id="L10">        throw new UnsupportedOperationException(&quot;Not implemented yet&quot;);</span>
+<span class="fc" id="L10">        int result = 0;</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        for (int i = value.length(); i-- &gt; 0; ) {</span>
+<span class="fc" id="L12">            char symbol = value.charAt(i);</span>
+<span class="pc bpc" id="L13" title="1 of 8 branches missed.">            result += switch (symbol) {</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">                case 'I' -&gt; result &gt;= 5 ? -1 : 1;</span>
+<span class="fc" id="L15">                case 'V' -&gt; 5;</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">                case 'X' -&gt; result &gt;= 50 ? -10 : 10;</span>
+<span class="fc" id="L17">                case 'L' -&gt; 50;</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">                case 'C' -&gt; result &gt;= 500 ? -100 : 100;</span>
+<span class="fc" id="L19">                case 'D' -&gt; 500;</span>
+<span class="fc" id="L20">                case 'M' -&gt; 1000;</span>
+<span class="pc" id="L21">                default -&gt; throw new IllegalArgumentException(&quot;Unexpected value: &quot; + symbol);</span>
+            };
+<span class="fc" id="L23">        }</span>
+<span class="fc" id="L24">        return result;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
