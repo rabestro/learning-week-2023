@@ -72,7 +72,7 @@
       <div id="contentBox">
 <section>
 <h2><a name="Checkstyle_Results"></a>Checkstyle Results</h2><a name="Checkstyle_Results"></a>
-<p>The following document contains the results of <a class="externalLink" href="https://checkstyle.org/">Checkstyle</a> 9.3 with sun_checks.xml ruleset.</p><section>
+<p>The following document contains the results of <a class="externalLink" href="https://checkstyle.org/">Checkstyle</a> 9.3 with google_checks.xml ruleset.</p><section>
 <h3><a name="Summary"></a>Summary</h3><a name="Summary"></a>
 <table border="0" class="bodyTable">
 <tr class="a">
@@ -83,8 +83,8 @@
 <tr class="b">
 <td align="left">1</td>
 <td>0</td>
-<td>0</td>
-<td>4</td></tr></table></section><section>
+<td>6</td>
+<td>0</td></tr></table></section><section>
 <h3><a name="Files"></a>Files</h3><a name="Files"></a>
 <table border="0" class="bodyTable">
 <tr class="a">
@@ -95,8 +95,8 @@
 <tr class="b">
 <td align="left"><a href="#diffblue.2Flegalage.2FLegalAgePredicate.java">diffblue/legalage/LegalAgePredicate.java</a></td>
 <td>0</td>
-<td>0</td>
-<td>4</td></tr></table></section><section>
+<td>6</td>
+<td>0</td></tr></table></section><section>
 <h3><a name="Rules"></a>Rules</h3><a name="Rules"></a>
 <table border="0" class="bodyTable">
 <tr class="a">
@@ -105,25 +105,26 @@
 <th>Violations</th>
 <th>Severity</th></tr>
 <tr class="b">
-<td align="left">coding</td>
-<td><a class="externalLink" href="https://checkstyle.org/config_coding.html#MagicNumber">MagicNumber</a></td>
-<td>1</td>
-<td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td></tr>
+<td align="left">indentation</td>
+<td><a class="externalLink" href="https://checkstyle.org/config_indentation.html#Indentation">Indentation</a>
+<ul>
+<li>throwsIndent: <code>&quot;4&quot;</code></li>
+<li>arrayInitIndent: <code>&quot;2&quot;</code></li>
+<li>caseIndent: <code>&quot;2&quot;</code></li>
+<li>basicOffset: <code>&quot;2&quot;</code></li>
+<li>braceAdjustment: <code>&quot;2&quot;</code></li>
+<li>lineWrappingIndentation: <code>&quot;4&quot;</code></li></ul></td>
+<td>5</td>
+<td><img src="images/icon_warning_sml.gif" alt="" />&#160;Warning</td></tr>
 <tr class="a">
-<td align="left">design</td>
-<td><a class="externalLink" href="https://checkstyle.org/config_design.html#DesignForExtension">DesignForExtension</a></td>
-<td>1</td>
-<td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td></tr>
-<tr class="b">
 <td align="left">javadoc</td>
-<td><a class="externalLink" href="https://checkstyle.org/config_javadoc.html#JavadocPackage">JavadocPackage</a></td>
+<td><a class="externalLink" href="https://checkstyle.org/config_javadoc.html#MissingJavadocType">MissingJavadocType</a>
+<ul>
+<li>scope: <code>&quot;protected&quot;</code></li>
+<li>excludeScope: <code>&quot;nothing&quot;</code></li>
+<li>tokens: <code>&quot;CLASS_DEF, INTERFACE_DEF, ENUM_DEF,                       RECORD_DEF, ANNOTATION_DEF&quot;</code></li></ul></td>
 <td>1</td>
-<td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td></tr>
-<tr class="a">
-<td align="left">misc</td>
-<td><a class="externalLink" href="https://checkstyle.org/config_misc.html#FinalParameters">FinalParameters</a></td>
-<td>1</td>
-<td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td></tr></table></section><section>
+<td><img src="images/icon_warning_sml.gif" alt="" />&#160;Warning</td></tr></table></section><section>
 <h3><a name="Details"></a>Details</h3><a name="Details"></a><section>
 <h4><a name="diffblue.2Flegalage.2FLegalAgePredicate.java"></a>diffblue/legalage/LegalAgePredicate.java</h4><a name="diffblue.2Flegalage.2FLegalAgePredicate.java"></a>
 <table border="0" class="bodyTable">
@@ -134,29 +135,41 @@
 <th>Message</th>
 <th>Line</th></tr>
 <tr class="b">
-<td align="left"><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
+<td align="left"><img src="images/icon_warning_sml.gif" alt="" />&#160;Warning</td>
 <td>javadoc</td>
-<td>JavadocPackage</td>
-<td>Missing package-info.java file.</td>
-<td><a href="./xref/diffblue/legalage/LegalAgePredicate.html#L1">1</a></td></tr>
+<td>MissingJavadocType</td>
+<td>Missing a Javadoc comment.</td>
+<td><a href="./xref/diffblue/legalage/LegalAgePredicate.html#L6">6</a></td></tr>
 <tr class="a">
-<td align="left"><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
-<td>design</td>
-<td>DesignForExtension</td>
-<td>Class 'LegalAgePredicate' looks like designed for extension (can be subclassed), but the method 'test' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'LegalAgePredicate' final or making the method 'test' static/final/abstract/empty, or adding allowed annotation for the method.</td>
+<td align="left"><img src="images/icon_warning_sml.gif" alt="" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def modifier' has incorrect indentation level 4, expected level should be 2.</td>
 <td><a href="./xref/diffblue/legalage/LegalAgePredicate.html#L8">8</a></td></tr>
 <tr class="b">
-<td align="left"><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
-<td>misc</td>
-<td>FinalParameters</td>
-<td>Parameter birthday should be final.</td>
-<td><a href="./xref/diffblue/legalage/LegalAgePredicate.html#L9">9</a></td></tr>
+<td align="left"><img src="images/icon_warning_sml.gif" alt="" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 4.</td>
+<td><a href="./xref/diffblue/legalage/LegalAgePredicate.html#L10">10</a></td></tr>
 <tr class="a">
-<td align="left"><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
-<td>coding</td>
-<td>MagicNumber</td>
-<td>'18' is a magic number.</td>
-<td><a href="./xref/diffblue/legalage/LegalAgePredicate.html#L12">12</a></td></tr></table></section></section></section>
+<td align="left"><img src="images/icon_warning_sml.gif" alt="" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 4.</td>
+<td><a href="./xref/diffblue/legalage/LegalAgePredicate.html#L11">11</a></td></tr>
+<tr class="b">
+<td align="left"><img src="images/icon_warning_sml.gif" alt="" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 4.</td>
+<td><a href="./xref/diffblue/legalage/LegalAgePredicate.html#L12">12</a></td></tr>
+<tr class="a">
+<td align="left"><img src="images/icon_warning_sml.gif" alt="" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def rcurly' has incorrect indentation level 4, expected level should be 2.</td>
+<td><a href="./xref/diffblue/legalage/LegalAgePredicate.html#L13">13</a></td></tr></table></section></section></section>
       </div>
     </div>
     <div class="clear">
