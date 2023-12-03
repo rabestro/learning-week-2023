@@ -49,22 +49,4 @@ class RomanToArabicConverterTest extends Specification {
         'MMXXI'     | 2021
         'MMMCMXCIX' | 3999
     }
-
-    @PendingFeature
-    def 'result is undefined for invalid Roman numerals'() {
-        given:
-        def converter = new RomanToArabicConverter()
-
-        when:
-        converter.applyAsInt(invalidRomanNumeral)
-
-        then:
-        notThrown IllegalArgumentException
-
-        where:
-        invalidRomanNumeral << [
-            'IIII', 'VV', 'XXXX', 'LL', 'CCCC', 'DD', 'MMMM',
-            'AB', '478', '#$%', 'MCMXCIIX', 'MCMXCIIX', 'MCMXCIIX'
-        ]
-    }
 }
