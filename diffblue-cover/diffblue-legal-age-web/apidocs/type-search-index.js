@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"diffblue.age.web","l":"AgeApp"},{"p":"diffblue.age.web","l":"AgeResource"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"}];updateSearchResults();
