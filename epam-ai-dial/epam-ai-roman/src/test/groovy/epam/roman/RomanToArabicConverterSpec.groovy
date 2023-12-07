@@ -1,4 +1,4 @@
-package epam.roman;
+package epam.roman
 
 import spock.lang.Specification
 import spock.lang.Unroll
