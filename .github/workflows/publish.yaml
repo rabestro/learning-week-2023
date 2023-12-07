@@ -1,0 +1,9 @@
+name: publish_site
+on: [workflow_dispatch]
+jobs:
+  print-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Publish site
+        run: mvn clean site site:stage scm-publish:publish-scm --batch-mode
