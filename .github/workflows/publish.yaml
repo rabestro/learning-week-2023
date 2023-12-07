@@ -1,9 +1,20 @@
-name: publish_site
+name: publish-site
 on: [workflow_dispatch]
 jobs:
-  print-hello:
+  publish-site:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Get java version from pom.xml
+        id: java-version
+        uses: mavrosxristoforos/get-xml-info@1.1.1
+        with:
+          xml-file: pom.xml
+          xpath: ${{ env.XPATH }}
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ steps.java-version.outputs.info }}
+          distribution: 'zulu' # Alternative distribution options are available.
       - name: Publish site
         run: mvn clean site site:stage scm-publish:publish-scm --batch-mode
