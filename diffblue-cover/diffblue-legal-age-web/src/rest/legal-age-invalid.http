@@ -1,0 +1,13 @@
+###
+
+GET {{host}}/age?birthday=xxx
+
+> {%
+    const data = JSON.parse(response.body.toString());
+    client.test("Returns 400 - Bad Request", function() {
+        client.assert(response.status === 400, "Response status is not 400");
+    });
+    client.test("Error message is correct", function() {
+        client.assert(data.error === "Invalid birthday format. Use yyyy-mm-dd.", "error message is incorrect");
+    });
+%}
