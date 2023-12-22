@@ -1,0 +1,75 @@
+openapi: 3.0.0
+info:
+  title: Sample of Bank API
+  description: >-
+    Sample of Bank API with only one end-point
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8182'
+    description: Local server
+paths:
+  /age:
+    get:
+        summary: Validate that person is legal age
+        description: >-
+          Verifies the person has reached the age of 18 years.
+          It returns a boolean value `true` if the answer is positive.
+
+        operationId: legalAgeValidator
+        parameters:
+            -  $ref: '#/components/parameters/BirthDate'
+        responses:
+            200:
+              $ref: '#/components/responses/LegalAgeResponse'
+            400:
+              $ref: '#/components/responses/ErrorResponse'
+
+components:
+  parameters:
+    BirthDate:
+      name: birthDate
+      in: query
+      description: >-
+        Birth date of person
+      required: true
+      schema:
+        type: string
+        format: date
+        example: 2000-01-01
+  schemas:
+    LegalAgeInfo:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Birthday message and legal age status
+        birthday:
+          type: string
+          format: date
+          description: The birthday in yyyy-mm-dd format
+        isLegalAge:
+          type: boolean
+          description: Indicates if the person is of legal age
+      required:
+        - message
+        - birthday
+        - isLegalAge
+  responses:
+    LegalAgeResponse:
+      description: Legal age validation response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LegalAgeInfo'
+    ErrorResponse:
+      description: Error response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Error message
+            required:
+              - error
