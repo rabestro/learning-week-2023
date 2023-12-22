@@ -8,7 +8,7 @@
     request.variables.set("birthday", young)
 %}
 
-GET http://localhost:8182/age?birthday={{birthday}}
+GET {{host}}/age?birthday={{birthday}}
 
 > {%
     const data = JSON.parse(response.body.toString());
@@ -31,7 +31,7 @@ GET http://localhost:8182/age?birthday={{birthday}}
     request.variables.set("birthday", young)
 %}
 
-GET http://localhost:8182/age?birthday={{birthday}}
+GET {{host}}/age?birthday={{birthday}}
 
 > {%
     const data = JSON.parse(response.body.toString());
