@@ -2,6 +2,7 @@ package diffblue.age.web;
 
 import diffblue.legalage.LegalAgePredicate;
 
+import org.restlet.data.Status;
 import org.restlet.resource.Get;
 import org.restlet.resource.ServerResource;
 import org.json.JSONObject;
@@ -22,6 +23,7 @@ public class AgeResource extends ServerResource {
             birthday = LocalDate.parse(birthdayString, DateTimeFormatter.ISO_DATE);
         } catch (DateTimeParseException e) {
             response.put("error", "Invalid birthday format. Use yyyy-mm-dd.");
+            setStatus(Status.CLIENT_ERROR_BAD_REQUEST);
             return response.toString();
         }
 
